@@ -1,0 +1,1 @@
+Hi Everyone, how are you? Welcome to Nodejs training!

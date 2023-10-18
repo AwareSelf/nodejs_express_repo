@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h3>Posting Person</h3>
+        <script>
+             const person = {"name":"sita","age":"23","nationality":"Indian"}
+             fetch(
+                'http://localhost:3000/people',
+                 {
+                    method : "POST",
+                    body: JSON.stringify(person),
+                    headers :{
+                        "Content-Type":"application/json; charset=UTF-8"
+                    }
+                 }
+             ).then((res)=>{
+                res.text()
+             }).then(txt=>{console.log(txt)})
+        </script>
+       
+    </body>
+</html>

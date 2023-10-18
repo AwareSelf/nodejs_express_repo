@@ -1,0 +1,36 @@
+If we talk about any application then the part with which the user is interacting is basically the frontend of our website whereas there are many things which happen in the background or in the backend of our website. Basically there are three parts of any application, one is Frontend with which the users are interacting, then comes to the backend server and backend database. For backend servers we can use NodeJS, Java, Python, etc. and for backend databases we use relational or non-relational databases.
+
+Now let us first know what NodeJS is.
+
+Whenever a client requests something from the client side of the application what happens is , the request is first sent to the server and then in that server some processing or calculations goes on for the validation of the client side request and after doing all such validation a response is sent to the client side. Basically for doing all such calculations and processing , this NodeJs framework of JavaScript is used.
+
+For running our web applications outside the client’s browser , NodeJS is basically used as an open-source and cross platform JavaScript runtime environment.For running the server side applications we use this.For building the I/O intensive applications like video streaming sites ,online chatting applications and many other applications , it is used. Many established tech giant companies and newly created start-ups are using NodeJs framework in their company.
+
+In 2009, NodeJs was developed by a guy called Ryan Dahla and the current version of NodeJs is v16.9.0.
+
+What is Node.js?
+Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.js to create server-side web applications, and it is perfect for data-intensive applications since it uses an asynchronous, event-driven model.
+
+Now that we know what is Node, let's look at why it is so prevalent in web development.
+
+Become a Skilled Web Developer in Just 9 Months!
+Caltech PGP Full Stack DevelopmentEXPLORE PROGRAMBecome a Skilled Web Developer in Just 9 Months!
+Why Do We Use NodeJs?
+There are many reasons for which we prefer using NodeJs for the server side of our application, some of them are discussed in the following:
+
+NodeJs is built on Google Chrome’s V8 engine, and for this reason its execution time is very fast and it runs very quickly.
+There are more than 50,000 bundles available in the Node Package Manager and for that reason developers can import any of the packages any time according to their needed functionality for which a lot of time is saved.
+As NodeJs do not need to wait for an API to return data , so for building real time and data intensive web applications, it is very useful. It is totally asynchronous in nature that means it is totally non-blocking.
+The loading time for an audio or video is reduced by NodeJs because there is better synchronization of the code between the client and server for having the same code base.
+As NodeJs is open-source and it is nothing but a JavaScript framework , so for the developers who are already used to JavaScript, for them starting developing their projects with NodeJs is very easy.
+Features of NodeJs
+Now let us discuss on some of the features of NodeJs:
+
+Asynchronous in Nature and Event driven: The servers made with the NodeJs never waits for the from an API. Without waiting for the data from the API, it directly moves to the next API. So all the APIs of NodeJS are totally non-blocking in nature. In order to receive and track all the responses of the previous API requests, it follows an event driven mechanism. Hence we can say that all the NodeJs API are non-blocking in nature.
+Single Threaded Architecture: With event looping, a single threaded architecture is followed by NodeJs and for this architecture makes NodeJs more scalable. In contrast to other servers, limited threads are created by them for processing the requests. Whereas for the event driven mechanism, the NodeJS servers reply in a non-blocking or an asynchronous manner and for this reason NodeJS becomes more scalable. If we compare NodeJs with other traditional servers like Apache HTTP servers, then we can say NodeJs handles a larger number of requests. A single threaded program is followed by NodeJS and this allows NodeJs to process a huge amount of requests.
+Scalable: Nowadays, scalable software is demanded by most of the companies. One of the most pressing concerns in Software Development is addressed by NodeJs and that is scalability. Concurrent requests can be handled very efficiently using NodeJs. A cluster module is used by NodeJs for managing the load balancing for all the active CPU cores. The most appealing feature of NodeJs is that it can partition the applications horizontally and this partition procedure is mainly achieved by it due to the use of child processes. Using this feature, the distinct app versions are provided to the different target audiences and also for customization it allows them for catering to the client preferences.
+Quick Execution time for code: V8 JavaScript runtime motor is used by NodeJs and this is also used by Google chrome. A wrapper is provided for the JavaScript by the hub and for that reason the runtime motor becomes faster and for this reason inside NodeJs, the preposition process of the requests also become faster.
+Compatibility on the cross platforms: Different types of systems like Windows, UNIX, LINUX, MacOS and other mobile devices can use NodeJs. For generating a self-sufficient execution, it can be paired with any appropriate package.
+Uses JavaScript: From an engineer's perspective, it is a very important aspect of NodeJs that this framework uses JavaScript Most of the developers are familiar with JavaScript, so for them it becomes very easier to grab NodeJs.
+Fast Data Streaming: The processing time of the data that have been transmitted to different streams takes a long time. Whereas for processing the data, NodeJs takes a very short amount of time and it does it at a very fast rate. NodeJs saves a lot of time because the files are processed and uploaded simultaneously by NodeJs. So as a result, the overall speed of data and video streaming is improved by NodeJs.
+No Buffering : No Buffering − Node. js applications, they, never buffer any sort of data. They simply output the data into chunks.

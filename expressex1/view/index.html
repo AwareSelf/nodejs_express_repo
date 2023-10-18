@@ -1,0 +1,56 @@
+<div>
+    <head>
+        <title>Rest Client</title>
+    </head>
+    <div>
+        <h3>Post User Details...</h3>
+     
+        <label for="myTextarea"Enter User to be posted:</label> <br>
+
+        <textarea id="myTextarea" name="myTextarea" rows="8" cols="150">
+        </textarea> <br>
+        <input type="button" id="postproduct" value="post user" click="postproduct()" /> <br>
+        <div id="postresponse"/></div> <br>
+        <hr/>
+         
+       
+        <script>
+
+        document.getElementById("postproduct").addEventListener('click',postproduct);
+        
+        function postproduct()
+        {    
+            console.log('inside post user function'); 
+            var url = "http://localhost:3000/product1";
+            var product = document.getElementById("myTextarea").value;
+            product = product.trim();
+           
+             console.log(product);
+             console.log('sending fetch request to url:'+url);
+           // POST request using fetch()
+          fetch(url, {
+     
+            // Adding method type
+                 method: "POST",
+     
+            // Adding body or contents to send
+               //  body: JSON.stringify(product),
+                   body:product,
+            // Adding headers to the request
+               headers: {
+                     "Content-type": "application/json; charset=UTF-8"
+                      }
+        })
+       // Converting to JSON
+       .then(response => response.json(),err=>console.log(err))
+       // Displaying results to console
+       .then(json => {console.log(json);
+             var element = document.getElementById('postresponse');
+             element.innerHTML = 'Post Product successful';
+                   });
+    }//end of postuser function
+
+
+  </script>
+ </body>
+</html>

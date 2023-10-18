@@ -1,0 +1,8 @@
+Node.js EventEmitter
+Node.js allows us to create and handle custom events easily by using events module. Event module includes EventEmitter class which can be used to raise and handle custom events.
+The following example demonstrates EventEmitter class for raising and handling a custom event.
+In the given example, we first import the 'events' module and then create an object of EventEmitter class. We then specify event handler function using on() function. The on() method requires name of the event to handle and callback function which is called when an event is raised.
+
+The emit() function raises the specified event. First parameter is name of the event as a string and then arguments. An event can be emitted with zero or more arguments. You can specify any name for a custom event in the emit() function.
+
+You can also use addListener() methods to subscribe for an event as shown in the example.

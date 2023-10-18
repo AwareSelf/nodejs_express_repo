@@ -20,7 +20,7 @@
 
         <textarea id="myTextarea" name="myTextarea" rows="8" cols="150">
         </textarea> <br>
-        <input type="button" id="postuser" value="post user" /> <br>
+        <input type="button" id="postuser" value="post user" click="postuser()" /> <br>
         <div id="postresponse"/></div> <br>
         <hr/>
         <input type="text" id="userid" placeholder="enter user id" /> <br>
@@ -31,7 +31,7 @@
 
             <textarea id="myTextarea1" name="myTextarea1" rows="8" cols="150">
             </textarea> <br>
-            <input type="button" id="updateuser" value="update user"  /> <br>
+            <input type="button" id="updateuser" value="update user" click="updateuser()" /> <br>
             <div id="updateresponse"/></div> <br>
        
        
@@ -89,11 +89,9 @@
         console.log(url);
         
         fetch(url, { method: 'DELETE' })
-        .then((res)=>res.text())
-        .then((data) => {
-                      console.log(data);
+        .then(() => {
                       var element = document.getElementById('delresponse');
-                      element.innerHTML = data;
+                      element.innerHTML = 'Delete successful';
                     });
     }//end of deluser function
 
@@ -129,11 +127,11 @@
                   }
     })
    // Converting to JSON
-   .then(response => response.text(),err=>console.log(err))
+   .then(response => response.json(),err=>console.log(err))
    // Displaying results to console
-   .then(txt => {console.log(txt);
+   .then(json => {console.log(json);
          var element = document.getElementById('updateresponse');
-         element.innerHTML = txt;
+         element.innerHTML = 'Update User successful';
                });
 }//end of updateuser function
   </script>

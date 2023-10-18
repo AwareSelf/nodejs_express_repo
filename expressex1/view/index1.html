@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Post Product Details Using Fetch API</title>
+    </head>
+    <body>
+        <h3>Hi All!</h3>
+        <button onclick="postprod()">post product</button>
+        <p id="resresult">show response result here!</p>
+
+        <script>
+            function postprod()
+            {
+                console.log('post product called..');
+                const url ="http://localhost:3000/product1";
+
+                const product = {prodid:1,prodname:'nodejs'};
+
+                // POST request using fetch()
+                fetch(url, 
+                          {
+                            method: "POST",
+                          //  body:product,
+                            body:JSON.stringify(product),
+                            headers: {
+                                   "Content-type": "application/json; charset=UTF-8"
+                                 }
+                           })
+                .then(res => res.text()) //res.json()
+                .then(data=>{
+                    console.log(data)
+                    document.getElementById('resresult').innerHTML=data;
+                 });
+               
+            }
+
+        </script>
+    
+    </body>
+</html>

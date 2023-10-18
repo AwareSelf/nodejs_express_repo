@@ -1,15 +1,13 @@
 // app.js file.
 var express = require('express');
 var path = require('path');
-
-//express application
 var app = express();
 var port=3000;
  
 // 1. Require the connection to the database.
 var connection = require('./database').databaseConnection;
-
 app.use(express.json());
+
 app.use(express.urlencoded({extended: true}));
 
 // set the view engine to ejs
@@ -38,9 +36,9 @@ app.get('/users', (req, res) => {
       else
       {
       console.log(result);
-     //  res.setHeader('Content-Type','application/json');
-     //   res.send(result);
-      res.render('listusers',{userlist:result});
+       res.setHeader('Content-Type','application/json');
+        res.send(result);
+      // res.render('listusers',{userlist:result});
       }
   });
 });
@@ -49,7 +47,7 @@ app.get('/users/:id', (req, res) => {
 
   console.log('inside delete user..');
   const id = req.params.id;
-  console.log('select user with id:'+id);
+  console.log('delete user with id:'+id);
   let sql = 'SELECT * FROM user where id = ?';
 
   connection.query(sql,[id], (err, result) => {
@@ -78,11 +76,11 @@ app.post('/user',(req,res)=>{
               ?,?,?,?
           )`;
   console.log(req.body);
-  const user = req.body;
-let id=user.id;
-let name=user.name;  
-let password=user.password;
-let profession=user.profession;
+  const e = req.body;
+let id=e.id;
+let name=e.name;  
+let password=e.password;
+let profession=e.profession;
 
 connection.query(sql, [id,name,password,profession], function (err, data) {
   if (err) {
@@ -129,52 +127,15 @@ let name=e.name;
 let password=e.password;
 let profession=e.profession;
 
-
-
 connection.query(sql, [name,password,profession,id], function (err, data) {
-   if (err) {
+  if (err) {
      console.log(err);
-     res.sendStatus(500).send('<p>Error updating User with id='+id+' and user name:'+name+'to db.');
+  res.sendStatus(500).send('<p>Error updating User with id='+id+' and user name:'+name+'to db.');
      
-   } 
-   else 
-   {
-      const ct = data.affectedRows;
-      console.log('no of rows affected:'+ct);
-      if(ct>=1)
-      {
-       // console.log('inside if as ct>=1, update success');
-           res.end("<p>User with id="+id+"updated successfully!</p>");
-      }
-      else
-      {
-        //user with given id not present in db so insert it
-         
-          sql = `INSERT INTO user
-          (
-              id,name,password,profession
-          )
-          VALUES
-          (
-              ?,?,?,?
-          )`;
-        connection.query(sql, [id,name,password,profession], function (err, data) {
-
-         
-          if (err) {
-             
-             console.log(err);
-             res.sendStatus(500).send('<p>Error posting User with id='+id+' and user name:'+name+'to db.');
-            
-          } else {
-              console.log("inside put - inserting row in db"+data.affectedRows);
-              res.send("<p>user with id="+id+" created successfully!</p>");
-              
-             }
-         });
-        //         res.send("<p>User with id="+id+"not posted yet so cant be updated!</p>");
-      }//end of else
-    }
+  } else {
+      console.log(data);
+      res.send(data);
+     }
  });
 })
 
