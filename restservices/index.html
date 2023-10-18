@@ -1,0 +1,141 @@
+<div>
+    <head>
+        <title>Rest Client</title>
+    </head>
+    <div>
+        <h3>Post User Details...</h3>
+        <div>
+          <p>Format of the user to be posted..</p>  
+          <span>
+            {
+            "user4" : {
+               "name" : "namita",
+               "password" : "password",
+               "profession" : "developer",
+               "id": 4
+            }
+          }
+        </span> 
+        </div>
+        <label for="myTextarea"Enter User to be posted:</label> <br>
+
+        <textarea id="myTextarea" name="myTextarea" rows="8" cols="150">
+        </textarea> <br>
+        <input type="button" id="postuser" value="post user" click="postuser()" /> <br>
+        <div id="postresponse"/></div> <br>
+        <hr/>
+        <input type="text" id="userid" placeholder="enter user id" /> <br>
+        <input type="button" id="deluser" value="delete user" /> <br>
+        <div id="delresponse"/></div> <br>
+        <hr/>
+        <label for="myTextarea1"Enter User to be updated:</label> <br>
+
+            <textarea id="myTextarea1" name="myTextarea1" rows="8" cols="150">
+            </textarea> <br>
+            <input type="button" id="updateuser" value="update user" click="updateuser()" /> <br>
+            <div id="updateresponse"/></div> <br>
+       
+       
+        <script>
+
+        document.getElementById("postuser").addEventListener('click',postuser);
+        document.getElementById("deluser").addEventListener('click',deluser);
+        document.getElementById("updateuser").addEventListener('click',updateuser);
+        function postuser()
+        {    
+            console.log('inside post user function'); 
+            var url = "http://localhost:3000/user";
+            var user = document.getElementById("myTextarea").value;
+            user = user.trim();
+            /*
+            var user = {
+                "user4" : {
+                   "name" : "namita",
+                   "password" : "password",
+                   "profession" : "developer",
+                   "id": 4
+                }
+             } */
+             console.log(user);
+             console.log('sending fetch request to url:'+url);
+           // POST request using fetch()
+          fetch(url, {
+     
+            // Adding method type
+                 method: "POST",
+     
+            // Adding body or contents to send
+               //  body: JSON.stringify(user),
+                   body:user,
+            // Adding headers to the request
+               headers: {
+                     "Content-type": "application/json; charset=UTF-8"
+                      }
+        })
+       // Converting to JSON
+       .then(response => response.json(),err=>console.log(err))
+       // Displaying results to console
+       .then(json => {console.log(json);
+             var element = document.getElementById('postresponse');
+             element.innerHTML = 'Post User successful';
+                   });
+    }//end of postuser function
+
+    function deluser()
+    {  
+        console.log('inside deluser function');
+        var userid = document.getElementById("userid").value;
+        userid = userid.trim();
+        console.log('userid to be deleted:'+userid);
+        var url = "http://localhost:3000/user/"+userid;
+        console.log(url);
+        
+        fetch(url, { method: 'DELETE' })
+        .then(() => {
+                      var element = document.getElementById('delresponse');
+                      element.innerHTML = 'Delete successful';
+                    });
+    }//end of deluser function
+
+    function updateuser()
+    {    
+        console.log('inside update user function'); 
+        var url = "http://localhost:3000/user";
+        var user = document.getElementById("myTextarea1").value;
+        user = user.trim();
+        /*
+        var user = {
+            "user4" : {
+               "name" : "namita",
+               "password" : "password",
+               "profession" : "developer",
+               "id": 4
+            }
+         } */
+         console.log(user);
+         console.log('sending fetch put request to url:'+url);
+       // POST request using fetch()
+      fetch(url, {
+ 
+        // Adding method type
+             method: "PUT",
+ 
+        // Adding body or contents to send
+           //  body: JSON.stringify(user),
+               body:user,
+        // Adding headers to the request
+           headers: {
+                 "Content-type": "application/json; charset=UTF-8"
+                  }
+    })
+   // Converting to JSON
+   .then(response => response.json(),err=>console.log(err))
+   // Displaying results to console
+   .then(json => {console.log(json);
+         var element = document.getElementById('updateresponse');
+         element.innerHTML = 'Update User successful';
+               });
+}//end of updateuser function
+  </script>
+ </body>
+</html>
