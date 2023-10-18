@@ -1,0 +1,52 @@
+Revision Day 1:
+NodeJs Why?
+1) we use it on server side
+   to code server side web components
+   rest services - 1-style
+   mvc web app - controller,model,view-html - 2 - style
+
+2) import module - require
+   inbuilt modules - path,http,events,file system
+   user defined module - module.exports
+   third-party module - express,mysql2,mongoosh - npm
+
+3) nodejs architecture
+      - concurrency
+      - web server - single threaded
+      - concurrency - non-blocking calls/apis,event-callback 
+      - nodejs event-loop
+         -- event-callback queue,special thread pool-non blocking calls executed - node lib& os
+	 -- non blocking operatn complted->event->event loop
+	    --> associated callback of that operation->execute it
+         -- event loop will again go on listening mode
+
+4) global variables - __filename,__dirname
+5) path - avoid giving hard-coded path
+        - which o.s run ,dont path seperator
+        - const path = path.join(__dirname,'book.json');
+	- extname(),basename(),parse(path),format()
+
+5) events - event handling 
+          - EventEmitter
+	  - emit('event name',data/js object)
+	  - on('event name',callback meth(data/object){})
+          - removeListener('event name',callback meth name);
+	  - removeAllListeners('event name');
+	  - user-defined class extend it from Event-Emitter
+	      -- member method - emit the event
+	      -- pizzastore-emit event - mem-methods
+	      -- main - listen to pizzastore events using on meth
+	  - inbuilt modules nodejs emit events - extending from
+	     event-emitter
+	 
+6) file system - require(fs)
+               - readfile - readFileSync / readFile
+	       - var content = readFileSync('file path','utf-8')- blocking call
+	       - readFile('file path','utf-8',(err,data)=>{})
+	       - writeFileSync('file path',content)- blocking call
+	       - writeFile('file path',content,(err)=>{})
+	       - writeFile('file path',content,{flag:'a'},(err)=>{})
+
+
+
+

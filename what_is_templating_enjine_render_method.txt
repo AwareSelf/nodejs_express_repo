@@ -1,0 +1,33 @@
+
+
+server side scripting
+java web-application - view - jsp page
+jsp page - dynamic page - mix of html and java code
+userlist.jsp- jsp executed on server side - java code inside ths will be
+                                            executed on server side
+                                          - html + result
+
+                                          - html rendered response
+
+
+listuser.ejs - nodejs server side scripting 
+scriplets
+<% foreach %> - js code
+<%=user.id%> -  outputting js variable value in html
+<%- %> - dynamic include of another ejs file
+
+ ejs = html + above tags
+ res.render(ejs file listusers.ejs) - scriplets execute on server side
+                                    -  JS code - node runtime
+                                    -  html + result above js code execution
+                                    - html rendered -response
+
+
+
+
+
+
+
+
+                        
+
