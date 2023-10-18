@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Users CRUD</title>
+        <%- include('includes/head'); %>
+        <style>
+          table, th, td {
+            border: 1px solid black;
+          }
+          
+          th, td {
+            padding: 10px;
+          }
+          </style>
+    </head>
+    <body class="container">
+        <h3>Users List</h3>
+        <table>
+          <tr>
+            <th>userid</th>
+            <th>username</th>
+            <th>password</th>
+            <th>profession</th>
+            <th>delete</th> 
+          </tr>
+          
+            <% userlist.forEach(function(user) { %>
+              <tr>
+                <td> <%= user.id %> </td> 
+                <td> <%= user.name %> </td>
+                <td> <%= user.password %> </td>
+                <td> <%= user.profession %> </td>
+                <td>
+                  <button onclick="deluser('<%= user.id %>')">Delete</button>
+                </td> 
+              
+              </tr>
+            <% }); %>
+          </table>
+      <br><br>
+      <footer>
+        <%- include('includes/footer'); %>
+      </footer>
+      <script type="text/javascript">
+        console.log('inside script tag of listuser');
+       // document.getElementById("deluser").addEventListener('click',deluser);
+        function deluser(id)
+        {
+          console.log("inside deluser"+id);
+          var url = "http://localhost:3000/user/"+id;
+          console.log(url);
+          fetch(url, { method: 'DELETE' })
+          .then(() => {
+                        location.reload();
+                        console.log('delete successful!')
+                      });
+        }
+      </script>
+    </body>
+</html>
